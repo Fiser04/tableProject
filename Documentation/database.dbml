@@ -1,0 +1,28 @@
+Table Table {
+  id integer pk
+  name string
+  client_id integer [not null, ref: > Client.id]
+}
+
+Table Cell {
+  id integer pk
+  value string
+  table_id integer [not null, ref: > Table.id]
+  column_id integer [not null, ref: > Column.id]
+  row_id integer [not null, ref: > Row.id]
+}
+
+table Column {
+  id integer pk
+  name string [not null]
+}
+
+table Row {
+  id integer pk
+  name string [not null]
+}
+
+table Client {
+  id integer pk
+  name string
+}
